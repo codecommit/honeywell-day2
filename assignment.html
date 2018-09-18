@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container .box{
+            width: 100px;
+            height : 100px;
+            background-color: orangered;
+            float: left;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function addBoxHandler(){
+            var box = document.createElement("div");
+                box.setAttribute("class","box");
+                box.innerHTML = "Box";
+            document.getElementsByClassName("container")[0].appendChild(box);
+        }
+        function removeBoxHandler(){
+            
+        }
+        function init(){
+            document.getElementsByTagName("button")[0].addEventListener("click", addBoxHandler);
+            document.getElementsByTagName("button")[1].addEventListener("click", removeBoxHandler);
+        }
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+</head>
+<body>
+    <button> Add Box </button>
+    <button> Remove Box </button>
+    <hr>
+    <div class="container"></div>
+</body>
+</html>
