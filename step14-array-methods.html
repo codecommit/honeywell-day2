@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array Methods</title>
+    <script>
+        var arr = [6,8,1,9,3,19,22,22,31,12,15,21];
+            // for(var i = 0; i < arr.length; i++){
+            //     console.log(arr[i]);
+            // };
+            /*
+            arr.forEach(function(value, index, array){
+                // console.log(arguments[0], arguments[1], arguments[2]);
+                // console.log(value);
+                // console.log(array[index]);
+            });
+            */
+            /*
+            var modifiedarr = arr.map(function(v,i,a){
+                    return v*2
+            });
+            console.log(modifiedarr);
+            */
+            /*
+            var bythree = arr.filter(function(v,i,a){
+                return v % 3 === 0;
+            });
+            console.log(bythree);
+            */
+            /*
+            var gtFive = arr.every(function(v,i,a){
+                return v > 5
+            });
+            console.log(gtFive);
+            var ltFive = arr.some(function(v,i,a){
+                return v < 5
+            });
+            console.log(ltFive);
+            */
+            /*
+        var total = arr.reduce(function(ival, v, i, a){
+                return ival+v;
+        },0);
+        console.log(total);
+        var rttotal = arr.reduceRight(function(ival, v, i, a){
+                return ival+v;
+        },0);
+        console.log(rttotal);
+
+        var idx22 = arr.indexOf(22);
+        var lastidx22 = arr.lastIndexOf(22);
+
+        console.log(idx22);
+        console.log(lastidx22);
+        */
+
+        var herolist = [
+            { title : "Batman", power : 7 },
+            { title : "Ironman", power : 8 },
+            { title : "Spiderman", power : 5 },
+            { title : "Superman", power : 10 },
+            { title : "Hulk", power : 9 },
+            { title : "Antman", power : 6 }
+        ];
+        var totalpow = herolist.reduce(function(ival, v, i, a){
+                return ival+v.power;
+        },0);
+        console.log(totalpow);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
