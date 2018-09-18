@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+        function clickHandler(){
+            alert("you cicked the button 1")
+        }
+        function removeClickHandler(){
+            document.getElementsByTagName("button")[1].removeEventListener("click", removeClickHandler)
+            document.getElementsByTagName("button")[0].removeEventListener("click", clickHandler)
+        }
+        */
+        function clickHandler(event){
+            // event.target
+            // event.type
+            // event.currentTarget
+            // event.preventDefault();
+            // event.stopPropagation();
+            console.log("you cicked the button "+event.target.innerHTML, event.type)
+        }
+        function init(){
+            for(var i = 0 ; i < document.getElementsByTagName("button").length; i++){
+                document.getElementsByTagName("button")[i].addEventListener("click", clickHandler);
+                document.getElementsByTagName("button")[i].addEventListener("mouseover", clickHandler);
+                document.getElementsByTagName("button")[i].addEventListener("mouseout", clickHandler);
+                document.getElementsByTagName("button")[i].addEventListener("mouseup", clickHandler);
+                document.getElementsByTagName("button")[i].addEventListener("mousedown", clickHandler);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+</head>
+<body>
+    <!-- button{Click Me}*2 -->
+    <button>Click me 1 </button>
+    <button>Click me 2 </button>
+    <button>Click me 3 </button>
+    <button>Click me 4 </button>
+    <button>Click me 5 </button>
+</body>
+</html>
