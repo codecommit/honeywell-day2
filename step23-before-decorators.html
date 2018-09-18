@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+       var composition = function( fun1, fun2 ){
+            return function(num){
+                return fun1( fun2(num) );
+            }
+       };
+       var firstfun = function(num){
+            return num * 2
+       };
+       var secondfun = function(num){
+            return num + 2
+       };
+       var comp = composition(firstfun, secondfun);
+        console.log( comp(5) );// 14
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
