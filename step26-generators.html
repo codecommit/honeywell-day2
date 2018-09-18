@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // generators pause a function in the middle of execution and can be resumed later;
+       // the star can be at the end of function keyword or before the function name
+       // you pause the function with the keyword yield
+       // there can be multiple yield in a function.
+
+       /*
+
+        function *myfun(){
+            yield "val1";
+            yield "val2";
+            yield "val3";
+            yield "val4";
+            yield "val5";
+        };
+
+        let fun = myfun();
+        console.log(fun.next());// Object{done:false, value:"val1"};
+        console.log(fun.next());// Object{done:false, value:"val2"};
+        console.log(fun.next());// Object{done:false, value:"val3"};
+        console.log(fun.next());// Object{done:false, value:"val4"};
+        console.log(fun.next());// Object{done:false, value:"val5"};
+        console.log(fun.next());// Object{done:true, value:"undefined"};
+       */
+
+        // Generators are useful when working with async operations
+        // ajax, timers, intervals are async operations.
+        // when ever i get some data i want to do something or for every data i want to do something
+
+        function *eachHero(arr){
+            /*
+            for(let i = 0 ; i< arr.length; i++){
+                yield arr[i]
+            }
+            */
+
+            for(let hero of arr){
+                yield hero
+            }
+
+        };
+
+        let heroes = eachHero(["Batman","Superman","Ironman","spiderman","Phantom"]);
+
+        let herolist = setInterval(function(){
+            var hero = heroes.next();
+            if(hero.done){
+                clearInterval( herolist );
+                console.log("done with the all the data");
+                console.log("***************************");
+            }else{
+                console.log(hero.value)
+            }
+        },1000);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

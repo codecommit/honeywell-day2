@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+        you create an iterator or an iterable values such as arrays, objects, strings and custom objects;
+        you call the iterator by using the method value() or [Symbol.iterator]() function on the array
+        that iterator then has next() method which returns an object
+        which has value and done properties
+         */
+
+        /*
+        let totalpower = 0;
+        let powers = [4,8,5,7,6,2];
+
+
+        let iterator = powers.values();
+        // let iterator = powers[Symbol.iterator]();
+        // will return the object with 2 properties value and done
+        console.log( iterator.next() ); // Object{ done : false, value : 4}
+        console.log( iterator.next() ); // Object{ done : false, value : 8}
+        console.log( iterator.next() ); // Object{ done : false, value : 5}
+        console.log( iterator.next() ); // Object{ done : false, value : 7}
+        console.log( iterator.next() ); // Object{ done : false, value : 6}
+        console.log( iterator.next() ); // Object{ done : false, value : 2}
+        console.log( iterator.next() ); // Object{ done : true, value : undefined}
+        */
+
+
+        /*
+
+         let totalpower = 0;
+         let powers = [4,8,5,7,6,2];
+
+         let iterator = powers.values();
+
+         let next = iterator.next();
+
+         while(!next.done){
+             totalpower += next.value;
+             console.log(next.value, next.done)
+             next = iterator.next();
+         };
+         console.log(totalpower);
+        */
+
+        /*
+         */
+         let totalpower = 0;
+
+         let powers = [
+         {title:"Batman",power : 4},
+         {title:"Robin",power : 8},
+         {title:"Spiderman",power : 5},
+         {title:"Superman",power : 7},
+         {title:"Ironman",power : 6},
+         {title:"Phantom",power : 2}
+         ];
+
+
+         let iterator = powers.values();
+         // let iterator = powers[Symbol.iterator]();
+         let next = iterator.next();
+         //  console.log(next.value, next.done);
+         while(!next.done){
+         totalpower += next.value.power;
+         console.log(next.value, next.done)
+         next = iterator.next();
+         };
+         console.log(totalpower);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

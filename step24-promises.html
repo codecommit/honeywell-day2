@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+/*
+        let promise = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                if(false){
+                    resolve("resolve data");
+                }else{
+                    reject("reject error")
+                }
+            },2000)
+        });
+        
+        promise.then(function(data){
+            console.log("Resolve : ",data);
+        },function(error){
+            console.log("Reject : ",error);
+        });
+        promise.catch(function(error){
+            console.log("Catch : ",error);
+        })
+        */
+        
+        /* STEP1
+*/
+
+        // the then can be chained but only the first then success will get the result of promise
+        // if you want to pass some data to the next then then your first then must return a valur
+        // if your then will take 2 params for both success and error handling then
+        // the last then must handle the error else the next then will still work but with no data;
+        
+        /*  STEP2
+   */
+/*
+
+        let promise = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                if(false){
+                    resolve("resolve data");
+                }else{
+                    reject("reject error")
+                }
+            },2000)
+        });
+
+        promise
+            .then(function(data){
+                console.log("Resolve : ",data);
+                return data+" some more value from first then"
+            })
+            .then(function(data){
+               console.log("Second then Resolved with : ",data)
+            }, function(error){
+                console.log("Reject : ", error)
+            });
+        // called when ever an error is thrown
+        promise.catch(function(error){
+            console.log("Catch : ",error);
+        })
+*/
+// nesting promises
+/*  STEP3
+
+    let asyncCall2 = function(){
+        
+        let promise = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                if(true){
+                    resolve("second resolve data" );
+                }else{
+                    reject("second reject error")
+                }
+            },1000)
+        });
+        
+        return promise;
+    };
+    let asyncCall1 = function(){
+        
+        let promise = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                if(true){
+                    resolve(
+                        asyncCall2()
+                        );
+                    }else{
+                        reject("reject error")
+                    }
+                },1000)
+            });
+            
+            return promise;
+        };
+        
+        asyncCall1().then(function(data){
+            console.log("Resolved : ",data);
+        }, function(error){
+            console.log("Rejected : ",error);
+        });
+*/
+        // Multiple promises
+        // the reject will be called if even one of them fail
+// if the first one fails it then immediately calls the error function
+
+//  STEP4
+/*
+let asyncCall2 = function(){
+    
+    let promise = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        if(true){
+            resolve("second resolve data" );
+        }else{
+            reject("second reject error")
+        }
+    },3000)
+});
+return promise;
+};
+let asyncCall1 = function(){
+    
+    let promise = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        if(false){
+            resolve("resolve data");
+        }else{
+            reject("reject error")
+        }
+    },1000)
+});
+
+return promise;
+};
+*/
+
+/*
+
+Promise.all([asyncCall1(),asyncCall2()])
+.then(function(data){
+    console.log("Resolved : ",data);
+}, function(error){
+    console.log("Rejected : ",error);
+});
+*/
+
+/*
+Promise.race([asyncCall2(),asyncCall1()])
+.then(function(data){
+    console.log("Resolved : ",data);
+}, function(error){
+    console.log("Rejected : ",error);
+});
+*/
+
+// Promise.race() will work similar to all
+// but will call resolved as soon as one of them resolves
+// wont wait for the next to resolve aswell
+// similarly calls reject when the first promise fails
+// wont wait for the next to resolve or reject
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
